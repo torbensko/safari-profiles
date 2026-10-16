@@ -1,0 +1,23 @@
+name: Test and package
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift test
+      - run: ./scripts/package.sh --unsigned
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-preview
+          path: |
+            dist/SafariProfileStudio-unsigned.dmg
+            dist/SafariProfileStudio-unsigned.zip
+            dist/SHA256SUMS-unsigned.txt
+          if-no-files-found: error
