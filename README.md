@@ -1,5 +1,7 @@
 # Safari Profile Launcher
 
+<img src="assets/studio-icon.png" alt="Safari Profile Studio four-colour compass logo" width="128">
+
 Coloured Dock buttons that open a **new window in a chosen profile in real Safari**. Create only the launchers you want. The native Profile Studio app edits names and colours and exports independent `.app` bundles. No subscriptions, embedded browser, extension, server, or running helper.
 
 ![Coloured Safari profile launchers in the macOS Dock](screenshots/safari-profiles-dock.jpg)

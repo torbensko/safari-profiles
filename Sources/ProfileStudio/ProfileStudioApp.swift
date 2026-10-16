@@ -121,6 +121,12 @@ struct StudioView: View {
 
 @main struct ProfileStudioApp: App {
     init() {
+        if CommandLine.arguments.count == 3, CommandLine.arguments[1] == "--write-studio-icon" {
+            do {
+                try CompassIcon.writeICNS(hex: "007AFF", to: URL(fileURLWithPath: CommandLine.arguments[2]), quadrants: true)
+                exit(0)
+            } catch { fputs("\(error.localizedDescription)\n", stderr); exit(1) }
+        }
         if CommandLine.arguments.count == 4, CommandLine.arguments[1] == "--write-icon" {
             do {
                 try CompassIcon.writeICNS(hex: CommandLine.arguments[2], to: URL(fileURLWithPath: CommandLine.arguments[3]))

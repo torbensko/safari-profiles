@@ -26,7 +26,7 @@ plist = dict(CFBundleIdentifier='local.safari-profile-launcher.studio',
 with (Path(os.environ['APP'])/'Contents/Info.plist').open('wb') as f:
     plistlib.dump(plist, f)
 PY
-"$BIN/ProfileStudio" --write-icon 007AFF "$APP/Contents/Resources/Studio.icns"
+"$BIN/ProfileStudio" --write-studio-icon "$APP/Contents/Resources/Studio.icns"
 SIGN_ARGS=(--force --sign "$SIGNING_IDENTITY")
 if [[ "$SIGNING_IDENTITY" != '-' ]]; then SIGN_ARGS+=(--options runtime --timestamp); fi
 codesign "${SIGN_ARGS[@]}" "$APP/Contents/Resources/ProfileLauncher"
