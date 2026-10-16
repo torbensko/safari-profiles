@@ -2,6 +2,8 @@
 
 Coloured Dock buttons that open a **new window in a chosen profile in real Safari**. Create only the launchers you want. The native Profile Studio app edits names and colours and exports independent `.app` bundles. No subscriptions, embedded browser, extension, server, or running helper.
 
+![Coloured Safari profile launchers in the macOS Dock](screenshots/safari-profiles-dock.jpg)
+
 ## Download
 
 Release downloads are published on [GitHub Releases](https://github.com/torbensko/safari-profiles/releases). The release workflow produces a Developer ID signed and notarized universal macOS app. If no release is listed yet, build from source below.
@@ -12,6 +14,8 @@ Release downloads are published on [GitHub Releases](https://github.com/torbensk
 2. Add a launcher. Enter the **exact** profile name from Safari Settings → Profiles, a display name, and a colour. Save.
 3. Export to `~/Applications`. Open the exported app once. If permission is missing, choose **Open Permission Settings**, then allow that exported app in System Settings → Privacy & Security → Accessibility. On some macOS releases this is named **Device control and Data access**. Repeat for each launcher. The builder itself does not need permission.
 4. Drag the exported applications from Finder into the Dock. Click one to request a new window in its configured profile.
+
+![Safari Profile Studio editor with profile names and icon colours](screenshots/safari-profiles-editor.jpg)
 
 Choose whichever profiles you need and give each a distinct colour. Other Safari profiles do not need a launcher.
 
