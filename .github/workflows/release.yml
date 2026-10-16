@@ -97,5 +97,10 @@ jobs:
             gh release create "$TAG" --target "$GITHUB_SHA" --draft \
               --title "Safari Profile Studio $RELEASE_VERSION" --notes-file RELEASE_NOTES.md
           fi
+          EXISTING_TARGET="$(git ls-remote origin "refs/tags/$TAG" "refs/tags/$TAG^{}" | tail -n1 | cut -f1)"
+          if [[ -n "$EXISTING_TARGET" && "$EXISTING_TARGET" != "$GITHUB_SHA" ]]; then
+            echo 'Existing version tag points at a different commit; bump VERSION.' >&2
+            exit 1
+          fi
           gh release upload "$TAG" artifacts/SafariProfileStudio.dmg artifacts/SafariProfileStudio.zip artifacts/SHA256SUMS.txt --clobber
-          gh release edit "$TAG" --draft=false --latest
+          gh release edit "$TAG" --target "$GITHUB_SHA" --draft=false --latest
